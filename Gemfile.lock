@@ -1,0 +1,52 @@
+PATH
+  remote: .
+  specs:
+    aftership (3.0.2)
+      httpi (~> 2.1)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.3.6)
+    coderay (1.1.0)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    diff-lcs (1.2.5)
+    httpi (2.2.5)
+      rack
+    method_source (0.8.2)
+    multipart-post (2.0.0)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rack (1.5.2)
+    rake (10.3.2)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+    rspec-core (3.1.4)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.1)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.0)
+    safe_yaml (1.0.3)
+    slop (3.6.0)
+    webmock (1.18.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aftership!
+  multipart-post (>= 1.1.0)
+  pry
+  rake
+  rspec
+  webmock
