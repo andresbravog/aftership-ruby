@@ -19,11 +19,18 @@ module AfterShip
           end
         end
 
-        request = HTTPI::Request.new(url)
-        request.headers = {"aftership-api-key" => AfterShip.api_key, 'Content-Type' => 'application/json'}
-        request.body = body.to_json
+        uri = URI.parse(url)
+        https = Net::HTTP.new(uri.host, uri.port)
+        https.use_ssl = true
+        https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        req_klass_name = 'Net::HTTP::' + http_verb_method.capitalize
+        req_klass = eval(req_klass_name)
+        req = req_klass.new(uri.request_uri)
+        req.add_field('aftership-api-key', AfterShip.api_key)
+        req.add_field('Content-Type', 'application/json')
+        req.body = body.to_json
 
-        response = HTTPI.send(http_verb_method.to_sym, request)
+        response = https.start { |handler| handler.request(req) }
 
         # different
         if response.nil?
